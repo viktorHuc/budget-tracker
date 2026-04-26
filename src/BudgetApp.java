@@ -25,6 +25,7 @@ public class BudgetApp {
         //System.out.println(allCategories);
         Collections.sort(allCategories);
         System.out.println(allCategories);
+        System.out.println(getPrecentege(allCategories));
     }
 
     /**
@@ -49,4 +50,16 @@ public class BudgetApp {
         }
         return difference;
     }
+
+    public static String getPrecentege(List<BudgetCategory> categories){
+        double percent = 0.0;
+        for(BudgetCategory c : categories){
+            if(c.getDifference() <= 0){
+                percent += 1;
+            }
+        }
+        percent = percent / categories.size() * 100;
+        return "There is: " + percent + "% over";
+    }
+
 }
